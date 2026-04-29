@@ -1,0 +1,27 @@
+Example 1
+Stripe dispute id: DP-7781
+Reason: product not received
+Disputed amount: $188.00
+Respond by: 2026-05-01
+Order # ORD-7781
+Customer: nina@example.com
+Tracking number: 1ZPASTE123456
+Delivered. Shipping address matches. Customer email thread available.
+
+Example 2
+PayPal case ID PP-8822
+Reason: unauthorized
+Amount: $64.50
+Deadline: May 6 2026
+Order number ORD-8822
+Customer email: omar@example.com
+Digital delivery email and IP log present.
+
+Example 3
+Square chargeback case SQ-5519
+Category: not as described
+Chargeback amount: $310.00
+Submit by: 2026-05-03
+Order # ORD-5519
+buyer@example.com
+Delivered with tracking TRACK5519 and support chat attached.
