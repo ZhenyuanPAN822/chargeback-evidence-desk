@@ -1,0 +1,3 @@
+dispute,payment_processor,dispute_reason,chargeback_amount,evidence_due,order,buyer_email,shipment_tracking,fulfillment_status,notes
+dp_1,Stripe,product not received,$199.00,2026-05-02,ORD-9001,a@example.com,1ZTEST111,delivered,"AVS match and customer email"
+dp_2,Stripe,fraudulent,$44.00,2026-05-04,ORD-9002,b@example.com,,delivered,"CVC passed, IP log present"
