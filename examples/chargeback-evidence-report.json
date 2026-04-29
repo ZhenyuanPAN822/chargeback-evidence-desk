@@ -1,0 +1,1405 @@
+{
+  "summary": {
+    "dispute_count": 25,
+    "analyzed_count": 25,
+    "total_amount": 9458.49,
+    "critical_count": 6,
+    "needs_review_count": 1
+  },
+  "processor_summary": {
+    "square": {
+      "count": 5,
+      "amount": 3345.0,
+      "critical": 2
+    },
+    "stripe": {
+      "count": 10,
+      "amount": 3663.99,
+      "critical": 2
+    },
+    "paypal": {
+      "count": 5,
+      "amount": 594.5,
+      "critical": 1
+    },
+    "shopify": {
+      "count": 5,
+      "amount": 1855.0,
+      "critical": 1
+    }
+  },
+  "queue": [
+    {
+      "dispute": {
+        "dispute_id": "CB-1009",
+        "processor": "square",
+        "reason": "fraud",
+        "amount": 1220.0,
+        "currency": "USD",
+        "due_date": "2026-04-27",
+        "transaction_date": "",
+        "order_id": "ORD-8409",
+        "customer_name": "Chris Ng",
+        "customer_email": "chris@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456787",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "SMS present",
+        "policy_url": "https://shop.example/terms",
+        "notes": "high value; signature proof attached",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": -1,
+      "urgency": "expired",
+      "evidence_score": 50,
+      "win_readiness": "deadline_risk",
+      "priority_score": 102.5,
+      "missing_evidence": [
+        "avs_or_cvc",
+        "ip_or_device"
+      ],
+      "available_evidence": [
+        "customer_authorization",
+        "customer_messages"
+      ],
+      "recommended_action": "Record as deadline risk, save all documents, and review prevention controls for future disputes.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "deadline",
+        "cash_at_risk",
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "MEDIUM",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1012",
+        "processor": "stripe",
+        "reason": "fraud",
+        "amount": 1500.0,
+        "currency": "USD",
+        "due_date": "2026-04-28",
+        "transaction_date": "",
+        "order_id": "ORD-8412",
+        "customer_name": "Iris Yang",
+        "customer_email": "iris@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456788",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "WhatsApp admission present",
+        "policy_url": "https://shop.example/terms",
+        "notes": "critical deadline",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 0,
+      "urgency": "critical",
+      "evidence_score": 50,
+      "win_readiness": "needs_evidence",
+      "priority_score": 97.5,
+      "missing_evidence": [
+        "avs_or_cvc",
+        "ip_or_device"
+      ],
+      "available_evidence": [
+        "customer_authorization",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: avs_or_cvc, ip_or_device. Then compile a concise packet for Stripe.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "deadline",
+        "cash_at_risk",
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "MEDIUM",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1019",
+        "processor": "square",
+        "reason": "product_not_received",
+        "amount": 980.0,
+        "currency": "USD",
+        "due_date": "2026-04-29",
+        "transaction_date": "",
+        "order_id": "ORD-8419",
+        "customer_name": "Uma Patel",
+        "customer_email": "uma@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "phone call notes",
+        "policy_url": "https://shop.example/returns",
+        "notes": "tracking missing despite delivery status",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 1,
+      "urgency": "critical",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 88.8,
+      "missing_evidence": [
+        "tracking_number"
+      ],
+      "available_evidence": [
+        "delivery_status",
+        "shipping_address_match",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: tracking_number. Then compile a concise packet for Square.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "deadline",
+        "cash_at_risk",
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1003",
+        "processor": "paypal",
+        "reason": "product_not_received",
+        "amount": 75.5,
+        "currency": "USD",
+        "due_date": "2026-04-28",
+        "transaction_date": "",
+        "order_id": "ORD-8403",
+        "customer_name": "Lina Park",
+        "customer_email": "lina@example.com",
+        "product_type": "physical",
+        "delivery_status": "in_transit",
+        "tracking_number": "9400111202555555555556",
+        "shipping_address_match": "no",
+        "refund_status": "",
+        "customer_messages": "buyer message says not arrived",
+        "policy_url": "https://shop.example/returns",
+        "notes": "carrier delay note",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 0,
+      "urgency": "critical",
+      "evidence_score": 50,
+      "win_readiness": "needs_evidence",
+      "priority_score": 85.0,
+      "missing_evidence": [
+        "delivery_status",
+        "shipping_address_match"
+      ],
+      "available_evidence": [
+        "tracking_number",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: delivery_status, shipping_address_match. Then compile a concise packet for Paypal.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "deadline",
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "MEDIUM",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1024",
+        "processor": "stripe",
+        "reason": "unknown",
+        "amount": 111.0,
+        "currency": "USD",
+        "due_date": "",
+        "transaction_date": "",
+        "order_id": "ORD-8424",
+        "customer_name": "Unknown Buyer",
+        "customer_email": "",
+        "product_type": "physical",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "",
+        "refund_status": "",
+        "customer_messages": "",
+        "policy_url": "",
+        "notes": "missing reason and due date",
+        "extraction_source": "csv",
+        "confidence": 0.55,
+        "needs_review": true,
+        "missing_fields": [
+          "due_date"
+        ]
+      },
+      "days_until_due": null,
+      "urgency": "unknown",
+      "evidence_score": 33,
+      "win_readiness": "needs_evidence",
+      "priority_score": 83.0,
+      "missing_evidence": [
+        "customer_messages",
+        "fulfillment_evidence"
+      ],
+      "available_evidence": [
+        "receipt"
+      ],
+      "recommended_action": "Collect missing evidence first: customer_messages, fulfillment_evidence. Then compile a concise packet for Stripe.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [
+        "evidence_gap"
+      ],
+      "confidence": "LOW",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1016",
+        "processor": "shopify",
+        "reason": "product_not_received",
+        "amount": 540.0,
+        "currency": "USD",
+        "due_date": "2026-04-26",
+        "transaction_date": "",
+        "order_id": "ORD-8416",
+        "customer_name": "Marco Diaz",
+        "customer_email": "marco@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456789",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "customer never contacted",
+        "policy_url": "https://shop.example/returns",
+        "notes": "deadline likely expired",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": -2,
+      "urgency": "expired",
+      "evidence_score": 100,
+      "win_readiness": "deadline_risk",
+      "priority_score": 82.8,
+      "missing_evidence": [],
+      "available_evidence": [
+        "tracking_number",
+        "delivery_status",
+        "shipping_address_match",
+        "customer_messages"
+      ],
+      "recommended_action": "Record as deadline risk, save all documents, and review prevention controls for future disputes.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "deadline",
+        "cash_at_risk",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1023",
+        "processor": "square",
+        "reason": "service_not_provided",
+        "amount": 700.0,
+        "currency": "USD",
+        "due_date": "2026-04-30",
+        "transaction_date": "",
+        "order_id": "INV-2003",
+        "customer_name": "Dina Ross",
+        "customer_email": "dina@example.com",
+        "product_type": "service",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "contract email present",
+        "policy_url": "https://studio.example/terms",
+        "notes": "service completion screenshots missing",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 2,
+      "urgency": "critical",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 79.1,
+      "missing_evidence": [],
+      "available_evidence": [
+        "service_log",
+        "customer_messages",
+        "contract_or_invoice"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [
+        "deadline",
+        "cash_at_risk"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1006",
+        "processor": "shopify",
+        "reason": "duplicate",
+        "amount": 210.0,
+        "currency": "USD",
+        "due_date": "2026-04-30",
+        "transaction_date": "",
+        "order_id": "ORD-8406",
+        "customer_name": "Kim Ho",
+        "customer_email": "kim@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456786",
+        "shipping_address_match": "yes",
+        "refund_status": "not_refunded",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/returns",
+        "notes": "two captures need transaction history",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 2,
+      "urgency": "critical",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 72.9,
+      "missing_evidence": [],
+      "available_evidence": [
+        "receipt",
+        "refund_status",
+        "transaction_history"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [
+        "deadline"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1001",
+        "processor": "stripe",
+        "reason": "product_not_received",
+        "amount": 189.0,
+        "currency": "USD",
+        "due_date": "2026-04-29",
+        "transaction_date": "",
+        "order_id": "ORD-8401",
+        "customer_name": "Ana Cruz",
+        "customer_email": "ana@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456784",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/returns",
+        "notes": "delivery photo, AVS match",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 1,
+      "urgency": "critical",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 72.3,
+      "missing_evidence": [],
+      "available_evidence": [
+        "tracking_number",
+        "delivery_status",
+        "shipping_address_match",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "deadline",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1007",
+        "processor": "stripe",
+        "reason": "service_not_provided",
+        "amount": 899.0,
+        "currency": "USD",
+        "due_date": "2026-05-01",
+        "transaction_date": "",
+        "order_id": "INV-2001",
+        "customer_name": "Ravi Shah",
+        "customer_email": "ravi@example.com",
+        "product_type": "service",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "contract email present",
+        "policy_url": "https://agency.example/terms",
+        "notes": "service log and milestone acceptance needed",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 3,
+      "urgency": "due_soon",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 65.0,
+      "missing_evidence": [],
+      "available_evidence": [
+        "service_log",
+        "customer_messages",
+        "contract_or_invoice"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [
+        "cash_at_risk"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1011",
+        "processor": "shopify",
+        "reason": "not_as_described",
+        "amount": 640.0,
+        "currency": "USD",
+        "due_date": "2026-05-03",
+        "transaction_date": "",
+        "order_id": "ORD-8411",
+        "customer_name": "Eli Stone",
+        "customer_email": "eli@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555558",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/returns",
+        "notes": "quality photos included",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 5,
+      "urgency": "due_soon",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 63.7,
+      "missing_evidence": [],
+      "available_evidence": [
+        "product_description",
+        "return_policy",
+        "customer_messages",
+        "photos_or_quality_notes"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Product description at purchase",
+        "Return/refund policy",
+        "Resolution attempts"
+      ],
+      "constraints": [
+        "cash_at_risk"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1002",
+        "processor": "shopify",
+        "reason": "fraud",
+        "amount": 420.0,
+        "currency": "USD",
+        "due_date": "2026-05-02",
+        "transaction_date": "",
+        "order_id": "ORD-8402",
+        "customer_name": "Jon Reese",
+        "customer_email": "jon@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555555",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "customer never contacted",
+        "policy_url": "https://shop.example/terms",
+        "notes": "AVS match, CVC passed, IP country matches shipping country",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 4,
+      "urgency": "due_soon",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 61.5,
+      "missing_evidence": [],
+      "available_evidence": [
+        "customer_authorization",
+        "avs_or_cvc",
+        "ip_or_device",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1015",
+        "processor": "stripe",
+        "reason": "credit_not_processed",
+        "amount": 300.0,
+        "currency": "USD",
+        "due_date": "2026-05-01",
+        "transaction_date": "",
+        "order_id": "ORD-8415",
+        "customer_name": "Grace Bell",
+        "customer_email": "grace@example.com",
+        "product_type": "physical",
+        "delivery_status": "returned",
+        "tracking_number": "9400111202555555555560",
+        "shipping_address_match": "yes",
+        "refund_status": "refunded",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/refunds",
+        "notes": "refund receipt present",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 3,
+      "urgency": "due_soon",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 59.7,
+      "missing_evidence": [],
+      "available_evidence": [
+        "refund_status",
+        "refund_receipt",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Refund status",
+        "Refund receipt or explanation",
+        "Customer communication"
+      ],
+      "constraints": [],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "DP-7781",
+        "processor": "stripe",
+        "reason": "product_not_received",
+        "amount": 188.0,
+        "currency": "USD",
+        "due_date": "2026-05-01",
+        "transaction_date": "",
+        "order_id": "ORD-7781",
+        "customer_name": "",
+        "customer_email": "nina@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1ZPASTE123456",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "present",
+        "policy_url": "",
+        "notes": "Example 1\nStripe dispute id: DP-7781\nReason: product not received\nDisputed amount: $188.00\nRespond by: 2026-05-01\nOrder # ORD-7781\nCustomer: nina@example.com\nTracking number: 1ZPASTE123456\nDelivered. Shipping address matches. Customer email thread available.\n\nExample 2\nPayPal case ID PP-8822\nReason: unauthorized\nAmount: $64.50\nDeadline: May 6 2026\nOrder number ORD-8822\nCustomer email: omar@example.com\nDigital delivery email and IP log present.\n\nExample 3\nSquare chargeback case SQ-5519\nCategory: not as described\nChargeback amount: $310.00\nSubmit by: 2026-05-03\nOrder # ORD-5519\nbuyer@example.com\nDelivered with tracking TRACK5519 and support chat attached.",
+        "extraction_source": "pasted_text",
+        "confidence": 0.9,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 3,
+      "urgency": "due_soon",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 57.3,
+      "missing_evidence": [],
+      "available_evidence": [
+        "tracking_number",
+        "delivery_status",
+        "shipping_address_match",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1017",
+        "processor": "stripe",
+        "reason": "not_as_described",
+        "amount": 77.0,
+        "currency": "USD",
+        "due_date": "2026-05-09",
+        "transaction_date": "",
+        "order_id": "ORD-8417",
+        "customer_name": "Tia Ray",
+        "customer_email": "tia@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555561",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "support chat present",
+        "policy_url": "",
+        "notes": "policy URL missing",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 11,
+      "urgency": "normal",
+      "evidence_score": 50,
+      "win_readiness": "needs_evidence",
+      "priority_score": 54.1,
+      "missing_evidence": [
+        "return_policy",
+        "photos_or_quality_notes"
+      ],
+      "available_evidence": [
+        "product_description",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: return_policy, photos_or_quality_notes. Then compile a concise packet for Stripe.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Product description at purchase",
+        "Return/refund policy",
+        "Resolution attempts"
+      ],
+      "constraints": [
+        "evidence_gap"
+      ],
+      "confidence": "MEDIUM",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1020",
+        "processor": "stripe",
+        "reason": "fraud",
+        "amount": 315.0,
+        "currency": "USD",
+        "due_date": "2026-05-07",
+        "transaction_date": "",
+        "order_id": "ORD-8420",
+        "customer_name": "Zoe Hart",
+        "customer_email": "zoe@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456790",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "no messages",
+        "policy_url": "https://shop.example/terms",
+        "notes": "AVS match",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 9,
+      "urgency": "normal",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 52.7,
+      "missing_evidence": [
+        "ip_or_device"
+      ],
+      "available_evidence": [
+        "customer_authorization",
+        "avs_or_cvc",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: ip_or_device. Then compile a concise packet for Stripe.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1004",
+        "processor": "square",
+        "reason": "not_as_described",
+        "amount": 310.0,
+        "currency": "USD",
+        "due_date": "2026-05-05",
+        "transaction_date": "",
+        "order_id": "ORD-8404",
+        "customer_name": "Owen Lee",
+        "customer_email": "owen@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "1Z999AA10123456785",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "support chat present",
+        "policy_url": "https://shop.example/returns",
+        "notes": "product page screenshot needed",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 7,
+      "urgency": "normal",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 52.6,
+      "missing_evidence": [
+        "photos_or_quality_notes"
+      ],
+      "available_evidence": [
+        "product_description",
+        "return_policy",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: photos_or_quality_notes. Then compile a concise packet for Square.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Product description at purchase",
+        "Return/refund policy",
+        "Resolution attempts"
+      ],
+      "constraints": [
+        "evidence_gap"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1018",
+        "processor": "paypal",
+        "reason": "fraud",
+        "amount": 260.0,
+        "currency": "USD",
+        "due_date": "2026-05-11",
+        "transaction_date": "",
+        "order_id": "ORD-8418",
+        "customer_name": "Noah King",
+        "customer_email": "noah@example.com",
+        "product_type": "digital",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "",
+        "refund_status": "",
+        "customer_messages": "usage logs present",
+        "policy_url": "https://shop.example/terms",
+        "notes": "device fingerprint present",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 13,
+      "urgency": "normal",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 51.7,
+      "missing_evidence": [
+        "avs_or_cvc"
+      ],
+      "available_evidence": [
+        "customer_authorization",
+        "ip_or_device",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: avs_or_cvc. Then compile a concise packet for Paypal.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1008",
+        "processor": "paypal",
+        "reason": "fraud",
+        "amount": 42.0,
+        "currency": "USD",
+        "due_date": "2026-05-10",
+        "transaction_date": "",
+        "order_id": "ORD-8408",
+        "customer_name": "Sue Ito",
+        "customer_email": "sue@example.com",
+        "product_type": "digital",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "",
+        "refund_status": "",
+        "customer_messages": "download email present",
+        "policy_url": "https://shop.example/terms",
+        "notes": "IP log present",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 12,
+      "urgency": "normal",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 42.2,
+      "missing_evidence": [
+        "avs_or_cvc"
+      ],
+      "available_evidence": [
+        "customer_authorization",
+        "ip_or_device",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: avs_or_cvc. Then compile a concise packet for Paypal.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Authorization signals",
+        "Device/IP/AVS notes",
+        "Fulfillment or usage proof"
+      ],
+      "constraints": [
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1014",
+        "processor": "square",
+        "reason": "incorrect_amount",
+        "amount": 135.0,
+        "currency": "USD",
+        "due_date": "2026-05-06",
+        "transaction_date": "",
+        "order_id": "ORD-8414",
+        "customer_name": "Lou Chen",
+        "customer_email": "lou@example.com",
+        "product_type": "service",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "signed invoice present",
+        "policy_url": "https://studio.example/terms",
+        "notes": "needs receipt copy",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 8,
+      "urgency": "normal",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 39.6,
+      "missing_evidence": [],
+      "available_evidence": [
+        "receipt",
+        "customer_messages",
+        "fulfillment_evidence"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1010",
+        "processor": "stripe",
+        "reason": "product_not_received",
+        "amount": 25.0,
+        "currency": "USD",
+        "due_date": "2026-05-12",
+        "transaction_date": "",
+        "order_id": "ORD-8410",
+        "customer_name": "Nora Fox",
+        "customer_email": "nora@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555557",
+        "shipping_address_match": "no",
+        "refund_status": "",
+        "customer_messages": "no messages",
+        "policy_url": "https://shop.example/returns",
+        "notes": "low amount; address mismatch",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 14,
+      "urgency": "normal",
+      "evidence_score": 75,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 39.5,
+      "missing_evidence": [
+        "shipping_address_match"
+      ],
+      "available_evidence": [
+        "tracking_number",
+        "delivery_status",
+        "customer_messages"
+      ],
+      "recommended_action": "Collect missing evidence first: shipping_address_match. Then compile a concise packet for Stripe.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "evidence_gap",
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1022",
+        "processor": "paypal",
+        "reason": "duplicate",
+        "amount": 129.0,
+        "currency": "USD",
+        "due_date": "2026-05-14",
+        "transaction_date": "",
+        "order_id": "ORD-8422",
+        "customer_name": "Sam Ford",
+        "customer_email": "sam@example.com",
+        "product_type": "digital",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "yes",
+        "refund_status": "not_refunded",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/terms",
+        "notes": "transaction history exported",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 16,
+      "urgency": "normal",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 39.3,
+      "missing_evidence": [],
+      "available_evidence": [
+        "receipt",
+        "refund_status",
+        "transaction_history"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Relevant fulfillment evidence",
+        "Customer communication",
+        "Policy notes"
+      ],
+      "constraints": [],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1013",
+        "processor": "paypal",
+        "reason": "product_not_received",
+        "amount": 88.0,
+        "currency": "USD",
+        "due_date": "2026-05-04",
+        "transaction_date": "",
+        "order_id": "ORD-8413",
+        "customer_name": "Pavel Novak",
+        "customer_email": "pavel@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555559",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "buyer asked for tracking",
+        "policy_url": "https://shop.example/returns",
+        "notes": "strong delivery evidence",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 6,
+      "urgency": "normal",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 37.3,
+      "missing_evidence": [],
+      "available_evidence": [
+        "tracking_number",
+        "delivery_status",
+        "shipping_address_match",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Tracking and delivery proof",
+        "Shipping address match",
+        "Customer communication"
+      ],
+      "constraints": [
+        "reason_code_evidence"
+      ],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1005",
+        "processor": "stripe",
+        "reason": "credit_not_processed",
+        "amount": 59.99,
+        "currency": "USD",
+        "due_date": "2026-05-08",
+        "transaction_date": "",
+        "order_id": "ORD-8405",
+        "customer_name": "Maya Wells",
+        "customer_email": "maya@example.com",
+        "product_type": "digital",
+        "delivery_status": "",
+        "tracking_number": "",
+        "shipping_address_match": "",
+        "refund_status": "refunded",
+        "customer_messages": "email confirms refund request",
+        "policy_url": "https://shop.example/refunds",
+        "notes": "refund receipt missing",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 10,
+      "urgency": "normal",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 35.3,
+      "missing_evidence": [],
+      "available_evidence": [
+        "refund_status",
+        "refund_receipt",
+        "customer_messages"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Refund status",
+        "Refund receipt or explanation",
+        "Customer communication"
+      ],
+      "constraints": [],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    },
+    {
+      "dispute": {
+        "dispute_id": "CB-1021",
+        "processor": "shopify",
+        "reason": "not_as_described",
+        "amount": 45.0,
+        "currency": "USD",
+        "due_date": "2026-05-15",
+        "transaction_date": "",
+        "order_id": "ORD-8421",
+        "customer_name": "Bea Lane",
+        "customer_email": "bea@example.com",
+        "product_type": "physical",
+        "delivery_status": "delivered",
+        "tracking_number": "9400111202555555555562",
+        "shipping_address_match": "yes",
+        "refund_status": "",
+        "customer_messages": "email thread present",
+        "policy_url": "https://shop.example/returns",
+        "notes": "low value; photos absent",
+        "extraction_source": "csv",
+        "confidence": 0.85,
+        "needs_review": false,
+        "missing_fields": []
+      },
+      "days_until_due": 17,
+      "urgency": "normal",
+      "evidence_score": 100,
+      "win_readiness": "ready_to_compile",
+      "priority_score": 33.8,
+      "missing_evidence": [],
+      "available_evidence": [
+        "product_description",
+        "return_policy",
+        "customer_messages",
+        "photos_or_quality_notes"
+      ],
+      "recommended_action": "Compile the evidence packet now, review for concise factual language, and submit before the deadline.",
+      "suggested_packet_sections": [
+        "Case summary",
+        "Transaction receipt",
+        "Customer/order identity",
+        "Timeline",
+        "Merchant statement",
+        "Product description at purchase",
+        "Return/refund policy",
+        "Resolution attempts"
+      ],
+      "constraints": [],
+      "confidence": "HIGH",
+      "false_positive_note": "This is an evidence-readiness checklist, not a guarantee of dispute outcome. Processors and issuing banks decide outcomes."
+    }
+  ],
+  "what_if": {
+    "deadline_buffer_plus_2_days": "More disputes become critical if the team wants a 2-day internal review buffer.",
+    "add_tracking_evidence": "Adding tracking evidence would directly improve 1 dispute(s).",
+    "ready_packet_count": 19,
+    "critical_deadline_count": 6,
+    "decision_impact": "Prioritize critical deadline cases first, then high-amount cases with small evidence gaps."
+  },
+  "markdown_report": "# Chargeback Evidence Desk Report\n\nThis report is an operational evidence checklist, not legal advice and not a guarantee of dispute outcome.\n\n## Executive Summary\n- Disputes analyzed: 25\n- Critical deadline cases: 6\n- Total amount at issue: 9458.49\n\n## Processor Summary\n- Square: 5 disputes, 3345.00 at issue, 2 critical\n- Stripe: 10 disputes, 3663.99 at issue, 2 critical\n- Paypal: 5 disputes, 594.50 at issue, 1 critical\n- Shopify: 5 disputes, 1855.00 at issue, 1 critical\n\n## Priority Queue\n### 1. CB-1009 - Square - 1220.00 USD\n- Reason: fraud\n- Due: 2026-04-27 (expired)\n- Evidence readiness: 50/100 (deadline_risk)\n- Confidence: MEDIUM\n- Missing evidence: avs_or_cvc, ip_or_device\n- Next action: Record as deadline risk, save all documents, and review prevention controls for future disputes.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 2. CB-1012 - Stripe - 1500.00 USD\n- Reason: fraud\n- Due: 2026-04-28 (critical)\n- Evidence readiness: 50/100 (needs_evidence)\n- Confidence: MEDIUM\n- Missing evidence: avs_or_cvc, ip_or_device\n- Next action: Collect missing evidence first: avs_or_cvc, ip_or_device. Then compile a concise packet for Stripe.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 3. CB-1019 - Square - 980.00 USD\n- Reason: product_not_received\n- Due: 2026-04-29 (critical)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: tracking_number\n- Next action: Collect missing evidence first: tracking_number. Then compile a concise packet for Square.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 4. CB-1003 - Paypal - 75.50 USD\n- Reason: product_not_received\n- Due: 2026-04-28 (critical)\n- Evidence readiness: 50/100 (needs_evidence)\n- Confidence: MEDIUM\n- Missing evidence: delivery_status, shipping_address_match\n- Next action: Collect missing evidence first: delivery_status, shipping_address_match. Then compile a concise packet for Paypal.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 5. CB-1024 - Stripe - 111.00 USD\n- Reason: unknown\n- Due: unknown (unknown)\n- Evidence readiness: 33/100 (needs_evidence)\n- Confidence: LOW\n- Missing evidence: customer_messages, fulfillment_evidence\n- Next action: Collect missing evidence first: customer_messages, fulfillment_evidence. Then compile a concise packet for Stripe.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 6. CB-1016 - Shopify - 540.00 USD\n- Reason: product_not_received\n- Due: 2026-04-26 (expired)\n- Evidence readiness: 100/100 (deadline_risk)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Record as deadline risk, save all documents, and review prevention controls for future disputes.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 7. CB-1023 - Square - 700.00 USD\n- Reason: service_not_provided\n- Due: 2026-04-30 (critical)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 8. CB-1006 - Shopify - 210.00 USD\n- Reason: duplicate\n- Due: 2026-04-30 (critical)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 9. CB-1001 - Stripe - 189.00 USD\n- Reason: product_not_received\n- Due: 2026-04-29 (critical)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 10. CB-1007 - Stripe - 899.00 USD\n- Reason: service_not_provided\n- Due: 2026-05-01 (due_soon)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 11. CB-1011 - Shopify - 640.00 USD\n- Reason: not_as_described\n- Due: 2026-05-03 (due_soon)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Product description at purchase, Return/refund policy, Resolution attempts\n\n### 12. CB-1002 - Shopify - 420.00 USD\n- Reason: fraud\n- Due: 2026-05-02 (due_soon)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 13. CB-1015 - Stripe - 300.00 USD\n- Reason: credit_not_processed\n- Due: 2026-05-01 (due_soon)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Refund status, Refund receipt or explanation, Customer communication\n\n### 14. DP-7781 - Stripe - 188.00 USD\n- Reason: product_not_received\n- Due: 2026-05-01 (due_soon)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 15. CB-1017 - Stripe - 77.00 USD\n- Reason: not_as_described\n- Due: 2026-05-09 (normal)\n- Evidence readiness: 50/100 (needs_evidence)\n- Confidence: MEDIUM\n- Missing evidence: return_policy, photos_or_quality_notes\n- Next action: Collect missing evidence first: return_policy, photos_or_quality_notes. Then compile a concise packet for Stripe.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Product description at purchase, Return/refund policy, Resolution attempts\n\n### 16. CB-1020 - Stripe - 315.00 USD\n- Reason: fraud\n- Due: 2026-05-07 (normal)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: ip_or_device\n- Next action: Collect missing evidence first: ip_or_device. Then compile a concise packet for Stripe.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 17. CB-1004 - Square - 310.00 USD\n- Reason: not_as_described\n- Due: 2026-05-05 (normal)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: photos_or_quality_notes\n- Next action: Collect missing evidence first: photos_or_quality_notes. Then compile a concise packet for Square.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Product description at purchase, Return/refund policy, Resolution attempts\n\n### 18. CB-1018 - Paypal - 260.00 USD\n- Reason: fraud\n- Due: 2026-05-11 (normal)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: avs_or_cvc\n- Next action: Collect missing evidence first: avs_or_cvc. Then compile a concise packet for Paypal.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 19. CB-1008 - Paypal - 42.00 USD\n- Reason: fraud\n- Due: 2026-05-10 (normal)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: avs_or_cvc\n- Next action: Collect missing evidence first: avs_or_cvc. Then compile a concise packet for Paypal.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Authorization signals, Device/IP/AVS notes, Fulfillment or usage proof\n\n### 20. CB-1014 - Square - 135.00 USD\n- Reason: incorrect_amount\n- Due: 2026-05-06 (normal)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 21. CB-1010 - Stripe - 25.00 USD\n- Reason: product_not_received\n- Due: 2026-05-12 (normal)\n- Evidence readiness: 75/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: shipping_address_match\n- Next action: Collect missing evidence first: shipping_address_match. Then compile a concise packet for Stripe.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 22. CB-1022 - Paypal - 129.00 USD\n- Reason: duplicate\n- Due: 2026-05-14 (normal)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Relevant fulfillment evidence, Customer communication, Policy notes\n\n### 23. CB-1013 - Paypal - 88.00 USD\n- Reason: product_not_received\n- Due: 2026-05-04 (normal)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Tracking and delivery proof, Shipping address match, Customer communication\n\n### 24. CB-1005 - Stripe - 59.99 USD\n- Reason: credit_not_processed\n- Due: 2026-05-08 (normal)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Refund status, Refund receipt or explanation, Customer communication\n\n### 25. CB-1021 - Shopify - 45.00 USD\n- Reason: not_as_described\n- Due: 2026-05-15 (normal)\n- Evidence readiness: 100/100 (ready_to_compile)\n- Confidence: HIGH\n- Missing evidence: none\n- Next action: Compile the evidence packet now, review for concise factual language, and submit before the deadline.\n- Packet sections: Case summary, Transaction receipt, Customer/order identity, Timeline, Merchant statement, Product description at purchase, Return/refund policy, Resolution attempts\n"
+}
