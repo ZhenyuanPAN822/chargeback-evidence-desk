@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chargeback Evidence Desk</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Local-first dispute triage</p>
+        <h1>Chargeback Evidence Desk</h1>
+        <p class="lede">Turn messy Stripe, Shopify, PayPal, or Square dispute exports into an evidence queue, deadline board, and copy-ready packet outline.</p>
+      </div>
+      <button id="sampleBtn">Load 24-case sample</button>
+    </header>
+
+    <main>
+      <section class="intake">
+        <div class="panel">
+          <h2>1. Intake</h2>
+          <div class="tabs">
+            <button class="tab active" data-tab="csv">CSV export</button>
+            <button class="tab" data-tab="text">Paste dispute text</button>
+            <button class="tab" data-tab="manual">Manual case</button>
+          </div>
+
+          <div class="tab-panel active" id="tab-csv">
+            <textarea id="csvInput" spellcheck="false" placeholder="Paste a Stripe/Shopify/PayPal/Square dispute CSV here..."></textarea>
+            <button id="parseCsvBtn">Normalize CSV</button>
+            <p class="hint">Flexible mapping supports common columns such as case_id, claim_id, reason_code, respond_by, order_number, buyer_email, tracking, and refund_status.</p>
+          </div>
+
+          <div class="tab-panel" id="tab-text">
+            <textarea id="textInput" spellcheck="false" placeholder="Paste text copied from a dispute email, dashboard, PDF, or OCR tool..."></textarea>
+            <button id="parseTextBtn">Extract fields for review</button>
+            <p class="hint">This is deterministic text parsing, not OCR/PDF extraction. Review extracted fields before analysis.</p>
+          </div>
+
+          <div class="tab-panel" id="tab-manual">
+            <div class="manual-grid">
+              <input id="m_dispute_id" placeholder="Dispute ID" />
+              <select id="m_processor">
+                <option>stripe</option><option>shopify</option><option>paypal</option><option>square</option>
+              </select>
+              <select id="m_reason">
+                <option value="product_not_received">product_not_received</option>
+                <option value="fraud">fraud</option>
+                <option value="not_as_described">not_as_described</option>
+                <option value="credit_not_processed">credit_not_processed</option>
+                <option value="service_not_provided">service_not_provided</option>
+              </select>
+              <input id="m_amount" placeholder="Amount" type="number" step="0.01" />
+              <input id="m_currency" placeholder="Currency" value="USD" />
+              <input id="m_due_date" placeholder="Due date YYYY-MM-DD" />
+              <input id="m_order_id" placeholder="Order ID" />
+              <input id="m_customer_email" placeholder="Customer email" />
+              <input id="m_tracking_number" placeholder="Tracking number" />
+              <input id="m_delivery_status" placeholder="Delivery status" />
+              <input id="m_shipping_address_match" placeholder="Address match yes/no" />
+              <input id="m_refund_status" placeholder="Refund status" />
+            </div>
+            <textarea id="m_notes" placeholder="Notes, AVS/CVC, customer messages, product policy, usage logs..."></textarea>
+            <button id="addManualBtn">Add manual case</button>
+          </div>
+        </div>
+
+        <div class="panel">
+          <h2>2. Review normalized disputes</h2>
+          <div class="review-actions">
+            <label>Internal review buffer <input id="deadlineBuffer" type="number" value="1" min="0" max="7" /> days</label>
+            <button id="analyzeBtn">Analyze evidence queue</button>
+          </div>
+          <div id="metadata" class="metadata"></div>
+          <div class="table-wrap">
+            <table id="reviewTable">
+              <thead>
+                <tr>
+                  <th>ID</th><th>Processor</th><th>Reason</th><th>Amount</th><th>Due</th><th>Evidence</th><th>Review</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <section class="dashboard">
+        <div class="metric"><span id="mCount">0</span><label>disputes</label></div>
+        <div class="metric"><span id="mAmount">$0</span><label>at issue</label></div>
+        <div class="metric danger"><span id="mCritical">0</span><label>critical deadlines</label></div>
+        <div class="metric warn"><span id="mReview">0</span><label>need review</label></div>
+      </section>
+
+      <section class="boards">
+        <div class="panel">
+          <h2>Deadline and evidence queue</h2>
+          <div id="queue"></div>
+        </div>
+        <div class="panel">
+          <h2>Processor board</h2>
+          <div id="processorBoard"></div>
+          <h2>What-if / constraint notes</h2>
+          <div id="whatIf"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Evidence packet draft</h2>
+        <p class="disclaimer">Operational template only. Not legal advice. Review processor requirements and the final packet before submitting.</p>
+        <textarea id="reportOutput" spellcheck="false"></textarea>
+        <div id="savedPaths" class="metadata"></div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+
